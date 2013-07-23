@@ -19,7 +19,14 @@ set backspace=indent,eol,start      " backspace over everything in insert mode
  set smartcase                       " ignore case if searchpattern is all lower case, cas-sensitive otherwise
  set hlsearch                        " highlight search hits
  set incsearch                       " search as you type
- nmap <silent> ,/ :nohlsearch<CR>
+
+
+" change the mapleader from \ to ,
+ let mapleader=","					 			
+
+ nmap <silent> <leader>/ :nohlsearch<CR>	 	" get rid of prev search highlights
+ nmap <silent> <leader>ev	:e $MYVIMRC<CR>		" e .vimrc
+ nmap <silent> <leader>sv	:so $MYVIMRC<CR>	" re-source .vimrc
 
  " Easier window navigation
  map <C-h>	<C-w>h
@@ -58,6 +65,8 @@ endif
 
 " Ack Integration for fuzzy find within file search
 let g:ackprg="/opt/local/bin/ack-5.12 -H -s --column "
+map <C-S-f>	:Ack<space>
+
 
 " NerdTREE configuration
 " map <C-n> :NERDTreeToggle<CR>	" Ctrl-n to open/close file explorer
