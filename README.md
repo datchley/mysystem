@@ -25,3 +25,10 @@ $ git submodule init
 $ git submodule update
 ```
 
+External Requirements
+---------------------
+
+The only thing you'll need outside of this repository is the Ack program, which you
+can find at http://beyondgrep.com/
+
+
