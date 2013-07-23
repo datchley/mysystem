@@ -29,11 +29,31 @@ export PATH=/usr/local/bin:$PATH:/Users/david.atchley/bin
 # }
 # PS1="[\t] \w \[\]\$(parse_git_branch)\[\]$ "
 
-function parse_git_dirty {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-}
-function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+# function parse_git_dirty {
+# 	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+# }
+
+# function parse_git_branch {
+# 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+# }
+function parse_git_branch() {
+    in_wd="$(git rev-parse --is-inside-work-tree 2>/dev/null)" || return
+    test "$in_wd" = true || return
+    state=''
+    git update-index --refresh -q >/dev/null # avoid false positives with diff-index
+    if git rev-parse --verify HEAD >/dev/null 2>&1; then
+        git diff-index HEAD --quiet 2>/dev/null || state='*'
+    else
+        state='#'
+    fi
+    (
+        d="$(git rev-parse --show-cdup)" &&
+        cd "$d" &&
+        test -z "$(git ls-files --others --exclude-standard .)"
+    ) >/dev/null 2>&1 || state="${state}+"
+    branch="$(git symbolic-ref HEAD 2>/dev/null)"
+    test -z "$branch" && branch='<detached-HEAD>'
+    echo " ("${branch#refs/heads/}")["${state}"]"
 }
 export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
