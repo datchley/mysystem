@@ -67,6 +67,9 @@ endif
 let g:ackprg="/opt/local/bin/ack-5.12 -H -s --column "
 map <C-S-f>	:Ack<space>
 
+" Airline status line configuration
+" let g:airline_theme='dark'
+let g:airline_theme='powerlineish'
 
 " NerdTREE configuration
 " map <C-n> :NERDTreeToggle<CR>	" Ctrl-n to open/close file explorer
