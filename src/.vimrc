@@ -40,9 +40,11 @@ cmap w!! w !sudo tee % >/dev/null
 " Vim Backups (NO) - use git or svn for this
 set nobackup                        " don't make a backup
 set noswapfile                      " don't make a .swp/o file
+set backupskip=/tmp/*,/private/tmp/*
 
-" A useful status line
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+" A useful status line (using airline now)
+" set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Toggle for pasting code, don't autoindent
 set pastetoggle=<F2>
@@ -51,7 +53,13 @@ set pastetoggle=<F2>
 set t_Co=256
 if &t_Co >= 256 || has("gui_running")
     " colorscheme desert256
-    colorscheme mustang
+    " colorscheme mustang
+    " colorscheme distinguished
+
+    " let g:solarized_termcolors=256
+    syntax enable
+    set background=dark
+    colorscheme solarized
 endif
 if &t_Co > 2 || has("gui_running")
     syntax on
@@ -70,6 +78,9 @@ map <C-S-f>	:Ack<space>
 " Airline status line configuration
 " let g:airline_theme='dark'
 let g:airline_theme='powerlineish'
+" let g:airline_section_b = '%{fugitive#head()}'
+let g:airline_section_b = '%{fugitive#statusline()}'
+set laststatus=2
 
 " NerdTREE configuration
 " map <C-n> :NERDTreeToggle<CR>	" Ctrl-n to open/close file explorer
@@ -77,6 +88,10 @@ let g:nerdtree_tabs_open_on_console_startup = 1	" open nerdtreetabs on console v
 let g:nerdtree_tabs_autoclose = 1				" close current tab if only one and it's nerdtree
 " Ctrl-n to open/close file explorer
 map <C-n> :NERDTreeTabsToggle<CR>				
+nmap <leader>n :NerdTreeFind<CR>
+
+" Tagbar configuration
+nmap <leader>t	:TagbarToggle<CR>
 
 " CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim			" set runtime path
