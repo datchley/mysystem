@@ -15,9 +15,14 @@ fi
 
 export GIT=git@vcs0stl0.lan.announcemedia.com
 export TERM=xterm-color
-# path prefers ports and homebrew installs over local 
+
+# Path prefers ports and homebrew installs over local 
 export PATH=/usr/local/bin:$PATH:/Users/david.atchley/bin:/opt/local/bin:/opt/local/sbin
 export NODE_PATH='/usr/local/lib/jsctags:${NODE_PATH}'
+
+# Homebrew path changes to allow gnu utils over local
+PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
 # export LC_CTYPE=en_US.utf-8
 # export LC_ALL=en_US.utf-8
@@ -81,7 +86,7 @@ alias ans='cd /var/www/html/announcemedia/answers.com/rubix.answers.com'
 
 # OS X ls color output
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+# export LSCOLORS=GxFxCxDxBxegedabagaced
 export LESS=-R
 
 export EDITOR=vi
