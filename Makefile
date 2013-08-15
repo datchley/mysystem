@@ -8,7 +8,7 @@ dir=$(shell pwd)
 
 SRC=./src
 DOT_FILES=$(SRC)/.bash_profile $(SRC)/.gitconfig $(SRC)/git-completion.bash $(SRC)/.vimrc $(SRC)/.jshintrc
-INSTALL_OPTS=-b -B "ORIG"
+INSTALL_OPTS=-b 
 
 VIMRC=$(SRC)/.vimrc
 VIM_FILES=$(shell find src/.vim -type f | sed -e "s/^src\///g")
@@ -34,7 +34,7 @@ install-vim:
 	## Installing vimrc and vim resources
 	install $(INSTALL_OPTS) $(VIMRC) $(prefix)
 	for f in $(VIM_FILES) ; do \
-		install $(INSTALL_OPTS) $(SRC)/$$f $(prefix)/$$f ; \
+		install -D $(SRC)/$$f $(prefix)/$$f ; \
 	done
 	## Patch Syntastic plugin for php
 	patch -u $(prefix)/.vim/bundle/syntastic/syntax_checkers/php/php.vim $(SRC)/syntastic-php.patch
