@@ -1,20 +1,20 @@
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
+[submodule "src/.vim/bundle/ctrlp.vim"]
+	path = src/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
+[submodule "src/.vim/bundle/ack.vim"]
+	path = src/.vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule "src/.vim/bundle/nerdtree"]
+	path = src/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
+[submodule "src/.vim/bundle/syntastic"]
+	path = src/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/vim-nerdtree-tabs"]
-	path = .vim/bundle/vim-nerdtree-tabs
+[submodule "src/.vim/bundle/vim-nerdtree-tabs"]
+	path = src/.vim/bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
+[submodule "src/.vim/bundle/vim-airline"]
+	path = src/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
 [submodule "src/.vim/bundle/vim-colors-solarized"]
 	path = src/.vim/bundle/vim-colors-solarized
