@@ -3,10 +3,7 @@
 # Where to install files
 prefix=$(shell echo $$HOME)
 
-# The package directory
-dir=$(shell pwd)
-
-SRC=./src
+SRC=$(shell pwd)/src
 DOT_FILES=$(SRC)/.bash_profile $(SRC)/.gitconfig $(SRC)/git-completion.bash $(SRC)/.vimrc $(SRC)/.jshintrc
 INSTALL_OPTS=-b 
 
@@ -19,7 +16,6 @@ ACK=`which ack`
 all: 
 	@echo "Usage: make [install|install-dotfiles|install-vim]"
 	@echo "prefix="$(prefix)
-	@echo "dir="$(dir)
 	@echo "SRC: "$(SRC)
 	@echo "VIMRC: "$(VIMRC)
 
@@ -33,7 +29,7 @@ check:
 install-vim: 
 	## Installing vimrc and vim resources
 	install $(INSTALL_OPTS) $(VIMRC) $(prefix)
-	for f in $(VIM_FILES) ; do \
+	@for f in $(VIM_FILES) ; do \
 		install -D $(SRC)/$$f $(prefix)/$$f ; \
 	done
 	## Patch Syntastic plugin for php
