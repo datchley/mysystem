@@ -35,6 +35,10 @@ install-vim:
 	## Patch Syntastic plugin for php
 	patch -u $(prefix)/.vim/bundle/syntastic/syntax_checkers/php/php.vim $(SRC)/syntastic-php.patch
 
+dircolors:
+	## installing dircolors database for terminal
+	install $(INSTALL_OPTS) $(SRC)/.dircolors-solarized $(prefix)
+
 install-dotfiles:
 	## Installing '.' files in home directory
 	install $(INSTALL_OPTS) $(DOT_FILES) $(prefix)
@@ -51,6 +55,9 @@ install: check install-vim install-dotfiles
 	@echo "===       click 'Load Presets…'"
 	@echo "===    2. Select the file 'Solarized Dark.itermcolors.xml' in the src/ of "
 	@echo "===       this repository"
+	@echo "==="
+	@echo "===  - To remove the directory terminal colors, simpley comment out the "
+	@echo "===    line in .bash_profile that calls `eval dircolors .dircolors-solarized "
 	@echo "==="
 	@echo "=== ----------------------------------------------------------------------"
 
