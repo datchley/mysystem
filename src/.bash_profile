@@ -45,7 +45,7 @@ export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 export CLICOLOR=1
 export LS_OPTIONS="--color=auto"
 export GREP_OPTIONS="--color=auto"
-eval `dircolors .dircolors-solarized`
+eval `dircolors ~/.dircolors-solarized`
 # export LSCOLORS=GxFxCxDxBxegedabagaced
 export LESS=-R
 
