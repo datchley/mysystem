@@ -4,8 +4,8 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Git completion setup
-if [ -f ~/git-completion.bash ]; then
-	. ~/git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+	. ~/.git-completion.bash
 fi
 
 # Source in Answers.com specific profile settings

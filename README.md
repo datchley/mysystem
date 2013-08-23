@@ -13,6 +13,7 @@ directly to your home directory and running the install script will setup the fo
 	- CtrlP - Ctrl-P like fuzzy finder popup similar to Sublime's Ctrl-P
 	- Vim Airline - a pure vim powerline drop in for an awesome status line in vim
 	- Solarized color scheme
+	- Fugitive - git integration for vim
 * vim color themes folder for syntax highlighting
 
 Installation
