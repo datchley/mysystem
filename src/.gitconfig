@@ -21,7 +21,7 @@
   untracked = cyan
 
 [merge]
-	tool = vimdiff
+	tool = fugitive
 
 [diff]
 	tool = vimdiff
@@ -39,3 +39,5 @@ br = branch
 	email = david.atchley@answers.com
 [difftool]
 	prompt = false
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
