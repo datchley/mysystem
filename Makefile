@@ -3,6 +3,7 @@
 # Where to install files
 # DEBUG: prefix=$(shell echo $$HOME/TMP)
 prefix=$(shell echo $$HOME)
+# prefix=/Users/david.atchley/TMP
 
 # debug mode, for dryrun testing
 debug=0
@@ -11,6 +12,11 @@ SRC=$(shell pwd)/src
 DOT_FILES=$(SRC)/.bash_profile $(SRC)/.gitconfig $(SRC)/.git-completion.bash $(SRC)/.vimrc $(SRC)/.jshintrc
 INSTALL_OPTS=
 INSTALL_CMD=$(shell which install)
+
+# Dependencies
+PATCH=$(shell which patch)
+ACK=$(shell which ack)
+
 
 ## dummy commands for testing makefile
 ifeq ($(debug), 1)
@@ -43,8 +49,6 @@ VIM_PKGS=NERD_tree-ack.vim \
 	vim-fugitive \
 	vim-nerdtree-tabs
 
-GIT=`which git`
-ACK=`which ack`
 
 all: 
 	@echo "Usage: make [install|install-dotfiles|install-vim]"
@@ -58,10 +62,30 @@ all:
 
 # checks for dependencies
 check:
-	@echo Checking for 'git' availability
-	@test "$(GIT)" != "" || (echo "Missing 'git' command. Needed to patch syntastic PHP files. Please install git first"; exit 1 )
-	@echo Checking for 'ack' availability
-	@test "$(ACK)" != "" || (echo "Missing 'ack' command. Please install"; exit 2 )
+	@echo ">>>> Dependency checks:"
+	@printf "checking for 'patch' ......"
+	@patch=`which patch`; \
+	if [ "$$patch" != "" ] ; then \
+		ver=$$($$patch -v | head -1); \
+		printf " %s\n" "$$ver" ; \
+	else \
+		printf "not found.\n"; \
+		echo "Missing 'patch' command. Needed to patch syntastic PHP files. Please install git first"; \
+		exit 1; \
+	fi
+	@printf "checking for 'ack' ......" 
+	@ack=`which ack`; \
+	if [ "$$ack" != "" ] ; then \
+		ver=$$($$ack --version | head -1); \
+		printf " %s\n" "$$ver" ; \
+	else \
+		printf "not found.\n"; \
+		echo "Missing 'ack' command."; \
+		exit 1; \
+	fi
+
+install-start:
+	@echo ">>>> Installing files:"
 
 # install .vimrc and .vim/ files and packages
 install-vim: 
@@ -87,7 +111,7 @@ install-vim:
 	$(PATCH) -u $(prefix)/.vim/bundle/syntastic/syntax_checkers/php/php.vim $(SRC)/syntastic-php.patch ; \
 
 # dircolors configuration for terminal output
-dircolors:
+install-dircolors:
 	@echo "Installing solarized colors for terminal ...."
 	$(INSTALL) $(SRC)/.dircolors-solarized $(prefix)
 
@@ -99,7 +123,7 @@ install-dotfiles:
 		$(INSTALL) -b $$f $(prefix) ; \
 	done
 
-install: check install-vim install-dotfiles
+install: check install-start install-vim install-dotfiles install-dircolors
 	@echo
 	@echo "=== Complete!"
 	@echo "=== ----------------------------------------------------------------------"
