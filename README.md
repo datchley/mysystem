@@ -1,7 +1,7 @@
 mysystem
 ========
 
-![Screenshot](http://glui.me/?i=7xfjn8icglq6ty3/2013-08-28_at_10.05_AM.png/)
+![Screenshot](http://dl.dropboxusercontent.com/s/7xfjn8icglq6ty3/2013-08-28%20at%2010.05%20AM.png?raw=true)
 
 My usual configs, scripts, etc for my Linux/OS X machines I work on. Downloading this
 directly to your home directory and running the install script will setup the following:
@@ -46,7 +46,7 @@ iTerm 2 settings in your profile should set the following:
 * treat ambiguous width chars as double width - unchecked
 * set your font to one of the [patched powerline fonts](https://github.com/Lokaltog/powerline-fonts)
 
-![Image](http://glui.me/?i=m8rqula7eahcls1/2013-08-28_at_10.03_AM.png/)
+![](http://dl.dropboxusercontent.com/s/m8rqula7eahcls1/2013-08-28%20at%2010.03%20AM.png?raw=true)
 
 External Requirements
 ---------------------
