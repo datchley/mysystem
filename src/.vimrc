@@ -1,6 +1,7 @@
 set mouse=a
 set number                          " always show line numbers
 set clipboard=unnamed				" alias unnamed register to the '+' register, which is the clipboard
+set encoding=utf-8					" set character encoding
 
 set nowrap                          " don't wrap long lines
 set backspace=indent,eol,start      " backspace over everything in insert mode
@@ -56,9 +57,10 @@ if &t_Co >= 256 || has("gui_running")
     " colorscheme mustang
     " colorscheme distinguished
 
-    " let g:solarized_termcolors=256
     syntax enable
     set background=dark
+    " let g:solarized_termcolors=256
+    let g:solarized_visibility = "low"
     colorscheme solarized
 endif
 if &t_Co > 2 || has("gui_running")
@@ -77,7 +79,8 @@ map <C-S-f>	:Ack<space>
 
 " Airline status line configuration
 " let g:airline_theme='dark'
-let g:airline_theme='powerlineish'
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
 " let g:airline_section_b = '%{fugitive#head()}'
 let g:airline_section_b = '%{fugitive#statusline()}'
 set laststatus=2

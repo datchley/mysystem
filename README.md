@@ -1,7 +1,9 @@
 mysystem
 ========
 
-My usual configs, scripts, etc for my *nix/OS X machines I work on. Downloading this
+![Screenshot](http://glui.me/?i=7xfjn8icglq6ty3/2013-08-28_at_10.05_AM.png/)
+
+My usual configs, scripts, etc for my Linux/OS X machines I work on. Downloading this
 directly to your home directory and running the install script will setup the following:
 
 * .vimrc - customized vimrc (commented) to work with Pathogen and plugins included
@@ -36,6 +38,15 @@ You can install the Solarized color scheme for iTerm2 as follows:
 
 1. In iTerm2, open “iTerm2 > Preferences > Profiles > Colors”, and click “Load Presets…”
 2. Select the file "Solarized Dark.itermcolors.xml in the src/ of this repository
+
+iTerm 2 settings in your profile should set the following:
+
+* terminal emulation - xterm-256color
+* draw bold text in bright colors - unchecked
+* treat ambiguous width chars as double width - unchecked
+* set your font to one of the [patched powerline fonts](https://github.com/Lokaltog/powerline-fonts)
+
+![Image](http://glui.me/?i=m8rqula7eahcls1/2013-08-28_at_10.03_AM.png/)
 
 External Requirements
 ---------------------

@@ -4,8 +4,8 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Git completion setup
-if [ -f ~/.git-completion.bash ]; then
-	. ~/.git-completion.bash
+if [ -f ~/git-completion.bash ]; then
+	. ~/git-completion.bash
 fi
 
 # Source in Answers.com specific profile settings
@@ -24,6 +24,8 @@ export NODE_PATH='/usr/local/lib/jsctags:${NODE_PATH}'
 PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
 
 
 ##########
