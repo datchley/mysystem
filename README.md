@@ -46,7 +46,7 @@ iTerm 2 settings in your profile should set the following:
 * treat ambiguous width chars as double width - unchecked
 * set your font to one of the [patched powerline fonts](https://github.com/Lokaltog/powerline-fonts)
 
-![](http://dl.dropboxusercontent.com/s/m8rqula7eahcls1/2013-08-28%20at%2010.03%20AM.png?raw=true)
+![Image](http://dl.dropboxusercontent.com/s/m8rqula7eahcls1/2013-08-28%20at%2010.03%20AM.png?raw=true)
 
 External Requirements
 ---------------------
