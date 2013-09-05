@@ -114,6 +114,9 @@ install-vim:
 install-dircolors:
 	@echo "Installing solarized colors for terminal ...."
 	$(INSTALL) $(SRC)/.dircolors-solarized $(prefix)
+	$(INSTALL) $(SRC)/.solarized_dark.itermcolors $(prefix)
+	$(INSTALL) $(SRC)/.solarized_light.itermcolors $(prefix)
+	@echo "See INSTALLATION NOTES for use"
 
 # Make sure to backup original dotfiles
 install-dotfiles:
@@ -134,8 +137,7 @@ install: check install-start install-vim install-dotfiles install-dircolors
 	@echo "==="
 	@echo "===    1. In iTerm2, open 'iTerm2 > Preferences > Profiles > Colors', and "
 	@echo "===       click 'Load Presets…'"
-	@echo "===    2. Select the file 'Solarized Dark.itermcolors.xml' in the src/ of "
-	@echo "===       this repository"
+	@echo "===    2. Select the file ~/solarized_dark.itermcolors or ~/solarized_light.itermcolors"
 	@echo "==="
 	@echo "===  - To remove the directory terminal colors, simpley comment out the "
 	@echo "===    line in .bash_profile that calls 'eval dircolors .dircolors-solarized' "
