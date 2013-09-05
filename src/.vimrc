@@ -58,11 +58,12 @@ if &t_Co >= 256 || has("gui_running")
     " colorscheme distinguished
 
     syntax enable
-    set background=dark
+    set background=light
     " let g:solarized_termcolors=16
     " let g:solarized_termtrans=1
     let g:solarized_visibility = "low"
     colorscheme solarized
+    let solarized_usetimer=0
 endif
 if &t_Co > 2 || has("gui_running")
     syntax on
@@ -83,14 +84,14 @@ function! SetSolarizedBackground()
     endif
 endfunction
 
-" Call at launch
-call SetSolarizedBackground()
+" Call at launch ?
+" call SetSolarizedBackground()
 
 " Every time you save a file, call the function to check the time and change 
 " the background (if necessary).
-if has("autocmd")
-    autocmd bufwritepost * call SetSolarizedBackground()
-endif
+" if has("autocmd")
+"     autocmd bufwritepost * call SetSolarizedBackground()
+" endif
 
 " netrw explorer settings (overridden by NERDTree)
 " let g:netrw_liststyle=3		" use tree-mode as default view
