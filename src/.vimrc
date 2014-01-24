@@ -2,6 +2,8 @@ set mouse=a
 set number                          " always show line numbers
 set clipboard=unnamed				" alias unnamed register to the '+' register, which is the clipboard
 set encoding=utf-8					" set character encoding
+set termencoding=utf-8
+" set fillchars+=stl:\ ,stlnc:\ 
 
 set nowrap                          " don't wrap long lines
 set backspace=indent,eol,start      " backspace over everything in insert mode
@@ -13,6 +15,7 @@ set backspace=indent,eol,start      " backspace over everything in insert mode
  set shiftwidth=4                    " number of spaces to use for autoindenting
  set shiftround                      " use multiple of shiftwidth for indenting with '>' and '<'
  set smarttab                        " insert tabs on start of new line according to shiftwidth, not tabstop
+ set expandtab
 
  " Searching
  set showmatch                       " set show matching parens
@@ -45,7 +48,7 @@ set backupskip=/tmp/*,/private/tmp/*
 
 " A useful status line (using airline now)
 " set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Toggle for pasting code, don't autoindent
 set pastetoggle=<F2>
@@ -58,7 +61,7 @@ if &t_Co >= 256 || has("gui_running")
     " colorscheme distinguished
 
     syntax enable
-    set background=light
+    set background=dark
     " let g:solarized_termcolors=16
     " let g:solarized_termtrans=1
     let g:solarized_visibility = "low"
@@ -99,16 +102,48 @@ endfunction
 " let g:netrw_preview=1			" preview window in vert split
 " let g:netrw_winsize=20		" 20% width of explorer, 80% preview
 
+" IndentLine integration
+" let g:indentLine_color_term = 239
+" let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
+let g:indentLine_enabled = 0
+nmap <leader>i :IndentLinesToggle<CR>
+
 " Ack Integration for fuzzy find within file search
 let g:ackprg="/opt/local/bin/ack-5.12 -H -s --column "
 map <C-S-f>	:Ack<space>
 
 " Airline status line configuration
 " let g:airline_theme='dark'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_powerline_symbols = 'fancy'
+" unicode symbols
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 let g:airline_theme='solarized'
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 " let g:airline_section_b = '%{fugitive#head()}'
-let g:airline_section_b = '%{fugitive#statusline()}'
+" let g:airline_section_b = '%{fugitive#statusline()}'
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
 " NerdTREE configuration
