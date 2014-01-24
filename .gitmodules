@@ -22,3 +22,6 @@
 [submodule "src/.vim/bundle/vim-fugitive"]
 	path = src/.vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "src/.vim/bundle/indentLine"]
+	path = src/.vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
