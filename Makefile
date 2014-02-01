@@ -47,7 +47,8 @@ VIM_PKGS=NERD_tree-ack.vim \
 	vim-airline \
 	vim-colors-solarized \
 	vim-fugitive \
-	vim-nerdtree-tabs
+	vim-nerdtree-tabs \
+	indentLine
 
 
 all: 
