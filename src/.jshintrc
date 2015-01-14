@@ -1,5 +1,5 @@
 {
-    // JSHint Default Configuration File (as on JSHint website)
+    // JSHint Default Configuration File 
     // See http://jshint.com/docs/ for more details
 
     "maxerr"        : 50,       // {int} Maximum error before stopping
@@ -8,7 +8,7 @@
     "bitwise"       : true,     // true: Prohibit bitwise operators (&, |, ^, etc.)
     "camelcase"     : false,    // true: Identifiers must be in camelCase
     "curly"         : true,     // true: Require {} for every new block or scope
-    "eqeqeq"        : true,     // true: Require triple equals (===) for comparison
+    "eqeqeq"        : false,     // true: Require triple equals (===) for comparison
     "forin"         : true,     // true: Require filtering for..in loops with obj.hasOwnProperty()
     "immed"         : false,    // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
     "indent"        : 4,        // {int} Number of spaces to use for indentation
@@ -25,7 +25,7 @@
                                 //   "double" : require double quotes
     "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
     "unused"        : true,     // true: Require all defined variables be used
-    "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
+    "strict"        : false,     // true: Requires all functions run in ES5 Strict Mode
     "trailing"      : false,    // true: Prohibit trailing whitespaces
     "maxparams"     : false,    // {int} Max number of formal params allowed per function
     "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
@@ -43,7 +43,7 @@
     "moz"           : false,     // true: Allow Mozilla specific syntax (extends and overrides esnext features)
                                  // (ex: `for each`, multiple try/catch, function expression…)
     "evil"          : false,     // true: Tolerate use of `eval` and `new Function()`
-    "expr"          : false,     // true: Tolerate `ExpressionStatement` as Programs
+    "expr"          : true,     // true: Tolerate `ExpressionStatement` as Programs
     "funcscope"     : false,     // true: Tolerate defining variables inside control statements"
     "globalstrict"  : true,      // true: Allow global "use strict" (also enables 'strict')
     "iterator"      : false,     // true: Tolerate using the `__iterator__` property
@@ -53,7 +53,7 @@
     "loopfunc"      : false,     // true: Tolerate functions being defined in loops
     "multistr"      : false,     // true: Tolerate multi-line strings
     "proto"         : false,     // true: Tolerate using the `__proto__` property
-    "scripturl"     : false,     // true: Tolerate script-targeted URLs
+    "scripturl"     : true,     // true: Tolerate script-targeted URLs
     "smarttabs"     : false,     // true: Tolerate mixed tabs/spaces when used for alignment
     "shadow"        : false,     // true: Allows re-define variables later in code e.g. `var x=1; x=2;`
     "sub"           : true,      // true: Tolerate using `[]` notation when it can still be expressed in dot notation
@@ -82,5 +82,14 @@
     "white"         : false,    // true: Check against strict whitespace and indentation rules
 
     // Custom Globals
-    "predef"        : [ ]       // additional predefined global variables
+    // additional predefined global variables
+    "predef"        : [
+        "jQuery", 
+        "$", 
+        "_",
+        "_gaq",
+        "COMSCORE",
+        "__qc",
+        "_qevents"
+    ]       
 }
